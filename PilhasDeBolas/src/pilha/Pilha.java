@@ -10,27 +10,27 @@ public class Pilha {
 		
 	}
 	
-	public void stack(Ball novo) {
-		if(!this.isEmpty()) {
+	public void stack(Ball novo) throws StackExeption{
+		if(isEmpty()) {
 			top = novo;
 			currentPosition+=1;
 		}else if(!isFull()) {
 			novo.setNext(top);
-			top.setNext(novo);
+			top=novo;
 			currentPosition+=1;
 		}else {
-			
+			throw StackExeption.stackItsFull("Error: Pilha está cheia !!!");
 		}
 	}
 	
-	public Ball unstack() {
+	public Ball unstack() throws StackExeption {
 		if(!isEmpty()) {
 			Ball retValue = top;
-			top.setNext(top.getNext());
+			top = top.getNext();
 			currentPosition-=1;
 			return retValue;
 		}else {
-			return null;
+			throw StackExeption.stackIsEmpty("Error : Pilha está vazia !!!");
 		}
 	}
 	
@@ -51,6 +51,12 @@ public class Pilha {
 	}
 	
 	public void showStack() {
+		Ball temp = top;
+		System.out.println("Mostrando Pilha de Bolas :");
+		while(temp != null) {
+			System.out.println("Bola nº : "+temp.valor);
+			temp = temp.getNext();
+		}
 		
 	}
 	
