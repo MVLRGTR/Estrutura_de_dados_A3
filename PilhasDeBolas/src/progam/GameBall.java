@@ -1,5 +1,6 @@
 package progam;
 
+import pilha.Ball;
 import pilha.Pilha;
 import pilha.StackExeption;
 
@@ -31,6 +32,24 @@ public class GameBall {
 			pilhas[i].showStack();
 			System.out.println("-----------------------------------------------------------");
 		}
+		
+		System.out.println("Ceiando um pilha winner...");
+		Pilha pilhaWinner = new Pilha();
+		try {
+			pilhaWinner.stack(new Ball(3));
+			pilhaWinner.stack(new Ball(3));
+			pilhaWinner.stack(new Ball(3));
+			pilhaWinner.stack(new Ball(3));
+			pilhaWinner.stack(new Ball(3));
+			pilhaWinner.stack(new Ball(3));
+			pilhaWinner.stack(new Ball(4));
+			pilhaWinner.stack(new Ball(4));
+			
+		}catch(StackExeption e) {
+			System.out.println(e.getMessage());
+		}
+		
+		System.out.println("pilhaWinner : "+pilhaWinner.winnerStack());
 		
 	}
 
