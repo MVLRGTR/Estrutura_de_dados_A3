@@ -33,24 +33,39 @@ public class GameBall {
 			System.out.println("-----------------------------------------------------------");
 		}
 		
-		System.out.println("Ceiando um pilha winner...");
-		Pilha pilhaWinner = new Pilha();
+		Pilha[] pilhasWinner = new Pilha[7];
+		for(int i= 0 ; i < 7 ; i++) {
+			pilhasWinner[i] = new Pilha();
+		}
+		for(int i = 0 ; i < 7 ;i++) {
+			try {
+				pilhasWinner[i].stack(new Ball(i+1));
+				pilhasWinner[i].stack(new Ball(i+1));
+				pilhasWinner[i].stack(new Ball(i+1));
+				pilhasWinner[i].stack(new Ball(i+1));
+				pilhasWinner[i].stack(new Ball(i+1));
+				pilhasWinner[i].stack(new Ball(i+1));
+				pilhasWinner[i].stack(new Ball(i+1));
+			}catch(StackExeption e) {
+				System.out.println(e.getMessage());
+			}
+		}
+		
+		System.out.println("*-------------------------WINNER-------------------------*");
+		System.out.println("Jogo ganho : "+game.verifyWinner(pilhasWinner));
+		System.out.println("*-------------------------LOSER-------------------------*");
 		try {
-			pilhaWinner.stack(new Ball(3));
-			pilhaWinner.stack(new Ball(3));
-			pilhaWinner.stack(new Ball(3));
-			pilhaWinner.stack(new Ball(3));
-			pilhaWinner.stack(new Ball(3));
-			pilhaWinner.stack(new Ball(3));
-			pilhaWinner.stack(new Ball(4));
-			pilhaWinner.stack(new Ball(4));
-			
+			pilhasWinner[2].unstack();
 		}catch(StackExeption e) {
 			System.out.println(e.getMessage());
 		}
 		
-		System.out.println("pilhaWinner : "+pilhaWinner.winnerStack());
-		
+		try {
+			pilhasWinner[2].stack(new Ball(2));;
+		}catch(StackExeption e) {
+			System.out.println(e.getMessage());
+		}
+		System.out.println("VerifyLoser : " + game.verifyWinner(pilhasWinner));
 	}
 
 }
