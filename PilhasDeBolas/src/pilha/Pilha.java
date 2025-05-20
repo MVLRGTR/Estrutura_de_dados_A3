@@ -3,7 +3,7 @@ package pilha;
 public class Pilha {
 	
 	private static final int limit = 7;
-	private static int currentPosition = 0;
+	private int currentPosition = 0;
 	private Ball top = null;
 	
 	public Pilha() {
@@ -57,7 +57,18 @@ public class Pilha {
 			System.out.println("Bola cor : "+temp.getColor());
 			temp = temp.getNext();
 		}
-		
+	}
+	
+	public boolean clear() {
+		if(this.isEmpty()) {
+			return false;
+		}else {
+			while(!this.isEmpty()) {
+				top = top.getNext();
+			}
+			this.currentPosition=0;
+			return true;
+		}
 	}
 	
 }

@@ -18,29 +18,25 @@ public class PlayingGame {
 	public void initStacks(Pilha[] pilhas) throws StackExeption {
 		ColorBall currentColor = null, lastColor = null;
 		
-		for (int i = 0 ; i < 7 ; i++) {
-			if(i==0) {
+		for(int i = 0 ; i < 7 ; i++) {
+			do {
+				pilhas[i].clear();
+				
 				for(int j = 0 ; j < 7 ; j++) {
 					pilhas[i].stack(new Ball(this.randomColor()));
 				}
-				currentColor = pilhas[i].showTop().getColor();
-				lastColor = pilhas[i].showTop().getColor();
-				System.out.println("Pilha : "+i+" "+pilhas[i].toString());
-			}else {
-				do {
-					for(int j = 0 ; j < 7 ; j++) {
-						pilhas[i].stack(new Ball(this.randomColor()));
-					}
+				
+				if(i==0) {
 					currentColor = pilhas[i].showTop().getColor();
-				}while(currentColor == lastColor);
-				if(currentColor==lastColor) {
-					for(int k = 0 ; k < 7 ; k++) {
-						pilhas[i].unstack();
-					}
+					lastColor = pilhas[i].showTop().getColor();
+				}else {
+					currentColor = pilhas[i].showTop().getColor();
 				}
-				lastColor=currentColor;
-			}
+				
+			}while( currentColor == lastColor);
+			lastColor = currentColor;
 		}
+		
 	}
 	
 }

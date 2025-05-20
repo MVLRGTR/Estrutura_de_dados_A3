@@ -1,6 +1,5 @@
 package progam;
 
-import pilha.Ball;
 import pilha.Pilha;
 import pilha.StackExeption;
 
@@ -19,6 +18,11 @@ public class GameBall {
 			game.initStacks(pilhas);
 		} catch (StackExeption e) {
 			System.out.println("Erro ao preencher as pilhas: " + e.getMessage());
+		}
+		
+		for(int i = 0 ; i < 7 ; i++) {
+			pilhas[i].showStack();
+			System.out.println("-----------------------------------------------------------");
 		}
 
 	}
