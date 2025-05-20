@@ -33,10 +33,31 @@ public class PlayingGame {
 					currentColor = pilhas[i].showTop().getColor();
 				}
 				
-			}while( currentColor == lastColor);
+			}while(i!=0 && currentColor == lastColor);
 			lastColor = currentColor;
 		}
-		
 	}
+	
+	public void celarStacks(Pilha[] pilhas) {
+		for(int i = 0 ; i < 7 ; i++) {
+			pilhas[i].clear();
+		}
+	}
+	
+	public boolean verifyWinner(Pilha[] pilhas) {
+		int cont = 0;
+		for(int i = 0 ; i < 7 ; i++) {
+			if(!pilhas[i].winnerStack()) {
+				return false;
+			}
+			cont++;
+		}
+		if(cont==7) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
 	
 }

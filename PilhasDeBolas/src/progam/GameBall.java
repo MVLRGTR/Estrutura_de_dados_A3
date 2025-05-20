@@ -24,7 +24,14 @@ public class GameBall {
 			pilhas[i].showStack();
 			System.out.println("-----------------------------------------------------------");
 		}
-
+		
+		game.celarStacks(pilhas);
+		
+		for(int i = 0 ; i < 7 ; i++) {
+			pilhas[i].showStack();
+			System.out.println("-----------------------------------------------------------");
+		}
+		
 	}
 
 }

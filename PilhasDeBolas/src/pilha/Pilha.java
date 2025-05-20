@@ -71,4 +71,23 @@ public class Pilha {
 		}
 	}
 	
+	public boolean winnerStack() {
+		if (top == null) return false;
+		Ball temp = top;
+		int cont = 0;
+		ColorBall compareColor = temp.getColor();
+		while(temp != null) {
+			if(compareColor!=temp.getColor()) {
+				return false;
+			}
+			temp=temp.getNext();
+			cont++;
+		}
+		if(cont==7) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
 }
