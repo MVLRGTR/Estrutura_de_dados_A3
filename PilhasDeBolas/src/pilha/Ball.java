@@ -2,10 +2,10 @@ package pilha;
 
 public class Ball {
 	private Ball next = null;
-	public int valor;
+	private ColorBall color;
 	
-	public Ball(int valor) {
-		this.valor=valor;
+	public Ball(int color) {
+		this.color=ColorBall.colorInt(color);
 	}
 
 	public void setNext(Ball next) {
@@ -14,6 +14,10 @@ public class Ball {
 
 	public Ball getNext() {
 		return next;
+	}
+	
+	public ColorBall getColor() {
+		return color;
 	}
 	
 }

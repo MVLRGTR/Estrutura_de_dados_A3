@@ -54,7 +54,7 @@ public class Pilha {
 		Ball temp = top;
 		System.out.println("Mostrando Pilha de Bolas :");
 		while(temp != null) {
-			System.out.println("Bola nº : "+temp.valor);
+			System.out.println("Bola cor : "+temp.getColor());
 			temp = temp.getNext();
 		}
 		
