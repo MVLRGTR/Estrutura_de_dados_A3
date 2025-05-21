@@ -1,6 +1,5 @@
 package progam;
 
-import pilha.Ball;
 import pilha.Pilha;
 import pilha.StackExeption;
 
@@ -26,6 +25,29 @@ public class GameBall {
 			System.out.println("-----------------------------------------------------------");
 		}
 		
+		System.out.println("Pilha7 , bola na posição 3 indice 0 : "+pilhas[6].getColorIndex(0));
+		System.out.println("Pilha7 , bola na posição 3 indice 0 : "+pilhas[6].getColorIndex(1));
+		System.out.println("Pilha7 , bola na posição 3 indice 0 : "+pilhas[6].getColorIndex(2));
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*
 		game.celarStacks(pilhas);
 		
 		for(int i = 0 ; i < 7 ; i++) {
@@ -33,7 +55,8 @@ public class GameBall {
 			System.out.println("-----------------------------------------------------------");
 		}
 		
-		Pilha[] pilhasWinner = new Pilha[7];
+		
+		 Pilha[] pilhasWinner = new Pilha[7];
 		for(int i= 0 ; i < 7 ; i++) {
 			pilhasWinner[i] = new Pilha();
 		}
@@ -66,6 +89,7 @@ public class GameBall {
 			System.out.println(e.getMessage());
 		}
 		System.out.println("VerifyLoser : " + game.verifyWinner(pilhasWinner));
+		 */
 	}
 
 }

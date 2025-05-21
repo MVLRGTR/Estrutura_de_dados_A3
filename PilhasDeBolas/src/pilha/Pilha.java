@@ -7,7 +7,6 @@ public class Pilha {
 	private Ball top = null;
 	
 	public Pilha() {
-		
 	}
 	
 	public void stack(Ball novo) throws StackExeption{
@@ -88,6 +87,20 @@ public class Pilha {
 		}else {
 			return false;
 		}
+	}
+	
+	public ColorBall getColorIndex(int position) {
+		Ball temp = this.showTop();
+		
+		if(position < 7 && position >= 0) {
+			for(int i = 0 ; i < position ; i++) {
+				temp=temp.getNext();
+			}
+			return temp.getColor();
+		}else {
+			return null;
+		}
+		
 	}
 	
 }
