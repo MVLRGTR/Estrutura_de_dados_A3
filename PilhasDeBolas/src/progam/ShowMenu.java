@@ -93,7 +93,7 @@ public class ShowMenu {
 	    }
 
 	    // Base das pilhas
-	    System.out.print("*");
+
 	    for (int i = 0; i < totalPilhas; i++) {
 	        System.out.print("   ___        ");
 	    }

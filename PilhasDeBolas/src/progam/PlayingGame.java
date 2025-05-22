@@ -9,6 +9,9 @@ import pilha.StackExeption;
 
 public class PlayingGame {
 	
+	public PlayingGame() {
+	}
+	
 	public int randomColor() {
 		Random random = new Random();
 		int randomNumber = random.nextInt(7)+1;
@@ -18,7 +21,7 @@ public class PlayingGame {
 	public void initStacks(Pilha[] pilhas) throws StackExeption {
 		ColorBall currentColor = null, lastColor = null;
 		
-		for(int i = 0 ; i < 7 ; i++) {
+		for(int i = 0 ; i < 6 ; i++) {
 			do {
 				pilhas[i].clear();
 				
@@ -60,7 +63,10 @@ public class PlayingGame {
 	}
 	
 	public void changeBall(Pilha[] pilhas,int posi1 , int posi2) throws StackExeption { //LEMBRAR PARA TRABALHAR COM INDICE 0
-		pilhas[posi2].stack(pilhas[posi1].unstack());
+		Ball temp = pilhas[posi1].unstack();
+		temp.setNext(null);
+		System.out.println("valor ball : "+temp.getColor().name());
+		pilhas[posi2].stack(temp);
 	}
 	
 	

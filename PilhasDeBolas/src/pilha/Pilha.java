@@ -92,13 +92,25 @@ public class Pilha {
 	public String getColorIndex(int position) {
 		Ball temp = this.showTop();
 		
+		if(temp == null) {
+			return "NULL";
+		}
+		
 		if(position < 7 && position >= 0) {
 			for(int i = 0 ; i < position ; i++) {
+				if(temp == null) {
+					return "NULL2";
+				}
 				temp=temp.getNext();
 			}
-			return temp.getColor().name();
+			if(temp == null || temp.getColor() == null) {
+				return "NULL2";
+			}else {
+				return temp.getColor().name();
+			}
+			
 		}else {
-			return null;
+			return "Null";
 		}
 		
 	}
