@@ -31,7 +31,7 @@ public class GameBall {
 		
 		
 		
-		
+		ShowMenu.showGameStacks(pilhas);;
 		
 		
 		
@@ -48,7 +48,7 @@ public class GameBall {
 		
 		
 		/*
-		game.celarStacks(pilhas);
+		game.clearStacks(pilhas);
 		
 		for(int i = 0 ; i < 7 ; i++) {
 			pilhas[i].showStack();

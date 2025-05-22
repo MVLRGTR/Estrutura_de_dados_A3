@@ -29,52 +29,79 @@ public class ShowMenu {
 	    }
 	}
 	
-	public static void showGameStacks(Pilha[] pilhas) {
-	    System.out.println("*---------------------------------GAME STACK BALL---------------------------------*");
-	    System.out.println("*                                                                                 *");
-	    System.out.println("*                                                                                 *");
-	    System.out.println("* PILHA 1     PILHA 2     PILHA 3     PILHA 4     PILHA 5     PILHA 6     PILHA 7 *");
-	    System.out.println("*                                                                                 *");
-
-	    
-	    for (int i = 0; i < 7; i++) {
-	        System.out.print("*   ");
-	        for (int j = 0; j < pilhas.length; j++) {
-	            String cor = pilhas[j].getColorIndex(i).name();
-	            System.out.printf("%-10s", cor); 
-	        }
-	        System.out.println("    *");
-
-	        System.out.println("*   |           |           |           |           |           |           |     *");
-	    }
-
-	    System.out.println("*  ___         ___         ___         ___         ___         ___         ___    *");
-	}
 
 	
 	/*
 	public static void showGameStacks(Pilha[] pilhas) {
-		System.out.println("*---------------------------------GAME STACK BALL---------------------------------*");
-		System.out.println("*                                                                                 *");
-		System.out.println("*                                                                                 *");
-		System.out.println("* PILHA 1     PILHA 2     PILHA 3     PILHA 4     PILHA 5     PILHA 6     PILHA 7 *");
-		System.out.println("*                                                                                 *");
-		 System.out.printf("*   %s          %s          %s          %s          %s          %s          %s    *"+pilhas[0].getColorIndex(0),pilhas[1].getColorIndex(0),pilhas[2].getColorIndex(0),pilhas[3].getColorIndex(0),pilhas[4].getColorIndex(0),pilhas[5].getColorIndex(0),pilhas[6].getColorIndex(0));
-		 System.out.printf("*   |           |           |           |           |           |           |     *");
-		 System.out.printf("*   %s          %s          %s          %s          %s          %s          %s    *"+pilhas[0].getColorIndex(1),pilhas[1].getColorIndex(1),pilhas[2].getColorIndex(1),pilhas[3].getColorIndex(1),pilhas[4].getColorIndex(1),pilhas[5].getColorIndex(1),pilhas[6].getColorIndex(1));
-		 System.out.printf("*   |           |           |           |           |           |           |     *");
-		 System.out.printf("*   %s          %s          %s          %s          %s          %s          %s    *");
-		 System.out.printf("*   |           |           |           |           |           |           |     *");
-		 System.out.printf("*   %s          %s          %s          %s          %s          %s          %s    *");
-		 System.out.printf("*   |           |           |           |           |           |           |     *");
-		 System.out.printf("*   %s          %s          %s          %s          %s          %s          %s    *");
-		 System.out.printf("*   |           |           |           |           |           |           |     *");
-		 System.out.printf("*   %s          %s          %s          %s          %s          %s          %s    *");
-		 System.out.printf("*   |           |           |           |           |           |           |     *");
-		 System.out.printf("*   %s          %s          %s          %s          %s          %s          %s    *");
-		 System.out.printf("*   |           |           |           |           |           |           |     *");
+		System.out.println("*----------------------------------GAME STACK BALL----------------------------------*");
+		System.out.println("*                                                                                   *");
+		System.out.println("*                                                                                   *");
+		System.out.println("*   PILHA 1     PILHA 2     PILHA 3     PILHA 4     PILHA 5     PILHA 6     PILHA 7 *");
+		System.out.println("*                                                                                   *");
+		 System.out.printf("*    %-10s     %-10s      %-10s       %-10s       %-10s       %-10s       %-10s    \n*",pilhas[0].getColorIndex(0),pilhas[1].getColorIndex(0),pilhas[2].getColorIndex(0),pilhas[3].getColorIndex(0),pilhas[4].getColorIndex(0),pilhas[5].getColorIndex(0),pilhas[6].getColorIndex(0));
+		 System.out.printf("*   |           |           |           |           |           |           |      \n*");
+		 System.out.printf("*   %s          %s          %s          %s          %s          %s          %s     \n*",pilhas[0].getColorIndex(1),pilhas[1].getColorIndex(1),pilhas[2].getColorIndex(1),pilhas[3].getColorIndex(1),pilhas[4].getColorIndex(1),pilhas[5].getColorIndex(1),pilhas[6].getColorIndex(1));
+		 System.out.printf("*   |           |           |           |           |           |           |      \n*");
+		 System.out.printf("*   %s          %s          %s          %s          %s          %s          %s     \n*");
+		 System.out.printf("*   |           |           |           |           |           |           |      \n*");
+		 System.out.printf("*   %s          %s          %s          %s          %s          %s          %s     \n*");
+		 System.out.printf("*   |           |           |           |           |           |           |      \n*");
+		 System.out.printf("*   %s          %s          %s          %s          %s          %s          %s     \n*");
+		 System.out.printf("*   |           |           |           |           |           |           |      \n*");
+		 System.out.printf("*   %s          %s          %s          %s          %s          %s          %s     \n*");
+		 System.out.printf("*   |           |           |           |           |           |           |      \n*");
+		 System.out.printf("*   %s          %s          %s          %s          %s          %s          %s     \n*");
+		 System.out.printf("*   |           |           |           |           |           |           |      \n*");
 		System.out.println("*  ___         ___         ___         ___         ___         ___         ___    *");
 		 
 	}
 */
+	
+	public static void showGameStacks(Pilha[] pilhas) {
+	    final int totalPilhas = 7;
+	    final int alturaMaxima = 8;
+
+	    System.out.println("*----------------------------------GAME STACK BALL----------------------------------*");
+	    System.out.println("*                                                                                   *");
+	    System.out.println("*                                                                                   *");
+
+	    // Cabeçalho das pilhas
+	    System.out.print("*");
+	    for (int i = 0; i < totalPilhas; i++) {
+	        System.out.printf("   PILHA %-2d ", i + 1);
+	    }
+	    System.out.println("  *");
+
+	    System.out.println("*                                                                                   *");
+
+	    // Conteúdo das pilhas
+	    for (int nivel = 0; nivel < alturaMaxima; nivel++) {
+	        System.out.print("*");
+	        for (int i = 0; i < totalPilhas; i++) {
+	            String cor = pilhas[i].getColorIndex(nivel);
+	            if (cor == null) cor = "";
+	            System.out.printf("   %-10s", cor); // alinhamento fixo de 10 caracteres
+	        }
+	        System.out.println("  *");
+
+	        // Separadores entre níveis
+	        System.out.print("*");
+	        for (int i = 0; i < totalPilhas; i++) {
+	            System.out.print("   |          ");
+	        }
+	        System.out.println(" *");
+	    }
+
+	    // Base das pilhas
+	    System.out.print("*");
+	    for (int i = 0; i < totalPilhas; i++) {
+	        System.out.print("   ___        ");
+	    }
+	    System.out.println("*");
+	}
+
+
+
+
+	
 }

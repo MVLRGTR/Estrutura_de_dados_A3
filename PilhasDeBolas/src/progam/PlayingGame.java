@@ -38,7 +38,7 @@ public class PlayingGame {
 		}
 	}
 	
-	public void celarStacks(Pilha[] pilhas) {
+	public void clearStacks(Pilha[] pilhas) {
 		for(int i = 0 ; i < 7 ; i++) {
 			pilhas[i].clear();
 		}
@@ -57,6 +57,10 @@ public class PlayingGame {
 		}else {
 			return false;
 		}
+	}
+	
+	public void changeBall(Pilha[] pilhas,int posi1 , int posi2) throws StackExeption { //LEMBRAR PARA TRABALHAR COM INDICE 0
+		pilhas[posi2].stack(pilhas[posi1].unstack());
 	}
 	
 	
