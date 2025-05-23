@@ -15,7 +15,41 @@ public class WaitingLine {
 		}
 	}
 	
+	public Document remove() {
+		if(!isEmpty()) {
+			Document retVal = start;
+			start.setNext(retVal.getNext());
+			return retVal;
+		}
+		return null;
+	}
 	
+	public Document showFirst() {
+		if(!isEmpty()) {
+			return start;
+		}
+		return null;
+	}
 	
+	public Document showLast() {
+		if(!isEmpty()) {
+			return end;
+		}
+		return null;
+	}
+	
+	public boolean isEmpty() {
+		return (start == null) ? true : false;
+	}
+	
+	public int size() {
+		int size = 0 ;
+		Document aux = start;
+		while(aux != null) {
+			size++;
+			aux.setNext(aux.getNext());
+		}
+		return size;
+	}
 	
 }

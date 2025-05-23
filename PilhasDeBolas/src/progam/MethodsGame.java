@@ -75,6 +75,12 @@ public class MethodsGame {
 		if(posi1 < 0 || posi1 > 6 || posi2 < 0 || posi2 > 6 ) {
 			throw StackExeption.operatorInvalid("O valor digitado para as pilhas é Invalido !!!");
 		}
+		if(pilhas[posi1].isEmpty()) {
+			throw StackExeption.stackIsEmpty("Error : Pilha selecionada está vazia !!!");
+		}
+		if(pilhas[posi2].isFull()) {
+			throw StackExeption.stackItsFull("Error : Pilha de destino selecionada está cheia !!!");
+		}
 		Ball temp = pilhas[posi1].unstack();
 		temp.setNext(null);
 		pilhas[posi2].stack(temp);
