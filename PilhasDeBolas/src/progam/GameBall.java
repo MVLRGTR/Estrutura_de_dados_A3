@@ -1,41 +1,46 @@
 package progam;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
-import pilha.Ball;
-import pilha.Pilha;
 import pilha.StackExeption;
 
 public class GameBall {
 
 	public static void main(String[] args) {
-		Pilha[] pilhas = new Pilha[7];
-
-		for (int i = 0; i < pilhas.length; i++) {
-			pilhas[i] = new Pilha();
-		}
-
+		Scanner sc = new Scanner(System.in);
 		PlayingGame game = new PlayingGame();
-
-		try {
-			game.initStacks(pilhas);
-		} catch (StackExeption e) {
-			System.out.println("Erro ao preencher as pilhas: " + e.getMessage());
+		int choice=1;
+		
+		while(true) {
+			try {
+				switch(choice) {
+					
+				case 1:
+					ShowMenu.showMenu();
+					choice = sc.nextInt();
+					break;
+					
+				case 2:
+					ShowMenu.showRules();
+					break;
+				
+				case 0:
+					System.out.println("Saindo do jogo...");
+					sc.close();
+					return;
+					
+				default:
+					System.out.println("Opção digitada inválida");
+					choice = 1;
+				}
+				
+			}catch(InputMismatchException e) {
+				System.out.println("Entrada inválida. Por favor, digite um número.");
+                sc.next();
+			}
 		}
-		
-		for(int i = 0 ; i < 7 ; i++) {
-			pilhas[i].showStack();
-			System.out.println("-----------------------------------------------------------");
-		}
-		
-		
-		System.out.println("chamando o metodo changeBall para pilha6 indice 5 metodo desempilhar e empilhar pilha7 indice 6...");
-		try {
-			game.changeBall(pilhas, 5, 6);
-		}catch(StackExeption e) {
-			System.out.println(e);
-		}
-		
-		ShowMenu.showGameStacks(pilhas);
+			
 	}
 
 }

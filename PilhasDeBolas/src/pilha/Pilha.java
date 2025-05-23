@@ -93,24 +93,24 @@ public class Pilha {
 		Ball temp = this.showTop();
 		
 		if(temp == null) {
-			return "NULL";
+			return "*";
 		}
 		
 		if(position < 7 && position >= 0) {
 			for(int i = 0 ; i < position ; i++) {
 				if(temp == null) {
-					return "NULL2";
+					return "*";
 				}
 				temp=temp.getNext();
 			}
 			if(temp == null || temp.getColor() == null) {
-				return "NULL2";
+				return "*";
 			}else {
 				return temp.getColor().name();
 			}
 			
 		}else {
-			return "Null";
+			return "NULL";
 		}
 		
 	}
