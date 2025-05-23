@@ -77,7 +77,6 @@ public class MethodsGame {
 		}
 		Ball temp = pilhas[posi1].unstack();
 		temp.setNext(null);
-		System.out.println("valor ball : "+temp.getColor().name());
 		pilhas[posi2].stack(temp);
 	}
 	

@@ -30,12 +30,24 @@ public class PlayingGame {
 			try {
 				ShowMenu.cleanConsole();
 				ShowMenu.showGameStacks(game.getStacks());
+				
 				System.out.print("Digite nº pilha (1-7) para poder tirar a bola :");
-				originStack = sc.nextInt();
-				originStack-=1;
-				System.out.print("Digite nº pilha (1-7) para poder colocar a bola :");
-				destinationStack = sc.nextInt();
-				destinationStack-=1;
+				String originInput = sc.nextLine().trim();
+				try {
+                    originStack = Integer.parseInt(originInput) - 1;
+                } catch (NumberFormatException e) {
+                    System.out.println("Entrada inválida para a pilha de origem. Digite um número entre 1 e 7.");
+                    continue; 
+                }
+				
+		        System.out.print("Digite nº pilha (1-7) para poder colocar a bola :");
+				String destinationInput = sc.nextLine().trim();
+				try {
+                    destinationStack = Integer.parseInt(destinationInput) - 1;
+                } catch (NumberFormatException e) {
+                    System.out.println("Entrada inválida para a pilha de destino. Digite um número entre 1 e 7.");
+                    continue; 
+                }
 				game.changeBall(originStack, destinationStack);
 				
 			}catch(StackExeption e) {

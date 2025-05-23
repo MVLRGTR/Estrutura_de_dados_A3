@@ -27,7 +27,7 @@ public class ShowMenu {
     }
 	
 	public static void cleanConsole() {
-		for (int i = 0; i < 50; i++) {
+		for (int i = 0; i < 3; i++) {
 	        System.out.println();
 	    }
 	}
