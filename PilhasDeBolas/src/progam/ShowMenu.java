@@ -5,11 +5,12 @@ import pilha.Pilha;
 public class ShowMenu {
 	
 	public static void showMenu() {
-		System.out.println("*=============== Bem vindo ao JOGO DE ORGANIZAR PILHAS DE BOLAS ===============*");
+		System.out.println("*=============== Bem vindo ao JOGO DE ORGANIZAR PILHAS DE BOLAS ==========================*");
 		 System.out.println("1. Iniciar Jogo");
          System.out.println("2. Regras do Jogo");
          System.out.println("3. Sair");
-         System.out.println("*===============================================================================*");
+         System.out.println("OBS : Dentro do jogo caso deseje voltar para o menu digite exit na pilha de tirar bola !!!");
+         System.out.println("*========================================================================================*");
          System.out.print("Escolha uma opção: ");
          
 	}

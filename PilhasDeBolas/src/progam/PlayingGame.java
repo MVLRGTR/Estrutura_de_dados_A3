@@ -15,8 +15,8 @@ public class PlayingGame {
 		this.sc = sc;
 	}
 	
-	public void startGame() {
-		int originStack;
+	public boolean startGame() {
+		int originStack ;
 		int destinationStack;
 		
 		try {
@@ -25,7 +25,9 @@ public class PlayingGame {
 			System.out.println(e.getMessage());
 		}
 		
-		while(!game.verifyWinner()) {
+		sc.nextLine();
+		
+		while(!game.verifyWinner() ) {
 			
 			try {
 				ShowMenu.cleanConsole();
@@ -33,29 +35,29 @@ public class PlayingGame {
 				
 				System.out.print("Digite nº pilha (1-7) para poder tirar a bola :");
 				String originInput = sc.nextLine().trim();
-				try {
-                    originStack = Integer.parseInt(originInput) - 1;
-                } catch (NumberFormatException e) {
-                    System.out.println("Entrada inválida para a pilha de origem. Digite um número entre 1 e 7.");
-                    continue; 
+				if (originInput.equals("exit")) {
+                    System.out.println("Voltando ao menu principal...");
+                    return false;
                 }
+				originStack = Integer.parseInt(originInput) - 1;
+	
 				
 		        System.out.print("Digite nº pilha (1-7) para poder colocar a bola :");
 				String destinationInput = sc.nextLine().trim();
-				try {
-                    destinationStack = Integer.parseInt(destinationInput) - 1;
-                } catch (NumberFormatException e) {
-                    System.out.println("Entrada inválida para a pilha de destino. Digite um número entre 1 e 7.");
-                    continue; 
-                }
+				destinationStack = Integer.parseInt(destinationInput) - 1;
+		
 				game.changeBall(originStack, destinationStack);
 				
 			}catch(StackExeption e) {
 				System.out.println(e.getMessage());
 			}catch(InputMismatchException e) {
 				System.out.println(e.getMessage());
+			}catch(NumberFormatException e) {
+				System.out.println("Entrada inválida para a pilha . Digite um número entre 1 e 7.");
 			}
 		}
+		
+		return true; 
 		
 	}
 
