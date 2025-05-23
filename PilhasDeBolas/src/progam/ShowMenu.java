@@ -9,7 +9,7 @@ public class ShowMenu {
 		 System.out.println("1. Iniciar Jogo");
          System.out.println("2. Regras do Jogo");
          System.out.println("3. Sair");
-         System.out.println("*=============================================================================*");
+         System.out.println("*===============================================================================*");
          System.out.print("Escolha uma opção: ");
          
 	}
@@ -22,11 +22,11 @@ public class ShowMenu {
         System.out.println("- As bolas devem ser movidas uma de cada vez.");
         System.out.println("- Uma pilha só pode conter bolas de uma única cor.");
         System.out.println("- Se todas as pilhas estiverem organizadas por cor, o jogador vence!");
-        System.out.println("*========================================================================================*");
-        System.out.println("Pressione Enter para voltar ao menu...");
+        System.out.println("*==========================================================================================*");
+        System.out.println("Digite um numero qualquer para voltar ao menu...");
     }
 	
-	public void cleanConsole() {
+	public static void cleanConsole() {
 		for (int i = 0; i < 50; i++) {
 	        System.out.println();
 	    }

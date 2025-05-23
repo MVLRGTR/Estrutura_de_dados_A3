@@ -10,19 +10,23 @@ public class GameBall {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		PlayingGame game = new PlayingGame();
-		int choice=1;
+		int choice=-1;
 		
 		while(true) {
 			try {
 				switch(choice) {
 					
-				case 1:
+				case -1:
 					ShowMenu.showMenu();
 					choice = sc.nextInt();
 					break;
 					
 				case 2:
+					ShowMenu.cleanConsole();
 					ShowMenu.showRules();
+					sc.next();
+					sc.nextLine();
+					choice =-1;
 					break;
 				
 				case 0:
@@ -32,7 +36,7 @@ public class GameBall {
 					
 				default:
 					System.out.println("Opção digitada inválida");
-					choice = 1;
+					choice = -1;
 				}
 				
 			}catch(InputMismatchException e) {
