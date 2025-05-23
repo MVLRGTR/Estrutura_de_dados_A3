@@ -3,13 +3,11 @@ package progam;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import pilha.StackExeption;
-
 public class GameBall {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		PlayingGame game = new PlayingGame();
+		MethodsGame game = new MethodsGame();
 		int choice=-1;
 		
 		while(true) {
@@ -20,6 +18,12 @@ public class GameBall {
 					ShowMenu.showMenu();
 					choice = sc.nextInt();
 					break;
+				
+				case 1:
+					PlayingGame playinGame = new PlayingGame(game, sc);
+					playinGame.startGame();
+					choice =-1;
+					break;
 					
 				case 2:
 					ShowMenu.cleanConsole();
@@ -29,7 +33,7 @@ public class GameBall {
 					choice =-1;
 					break;
 				
-				case 0:
+				case 3:
 					System.out.println("Saindo do jogo...");
 					sc.close();
 					return;

@@ -18,6 +18,14 @@ public class StackExeption extends Exception {
 	public static StackExeption stackItsFull(String message) {
 		return new StackExeption(message,"FULL");
 	}
+	
+	public static StackExeption operationInvalid(String message) {
+		return new StackExeption(message, "INVALID");
+	}
+	
+	public static StackExeption operatorInvalid(String message) {
+		return new StackExeption(message, "OPERATORINVALID");
+	}
 
 	public String getType() {
 		return type;
