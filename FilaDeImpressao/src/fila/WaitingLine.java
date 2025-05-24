@@ -11,7 +11,8 @@ public class WaitingLine {
 			start = newDocument;
 			end = newDocument;
 		}else {
-			
+			end.setNext(newDocument);
+			end = newDocument;
 		}
 	}
 	
@@ -47,7 +48,7 @@ public class WaitingLine {
 		Document aux = start;
 		while(aux != null) {
 			size++;
-			aux.setNext(aux.getNext());
+			aux=aux.getNext();
 		}
 		return size;
 	}
