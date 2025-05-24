@@ -7,13 +7,20 @@ public class WaitingLine {
 	
 	
 	public void insert(Document newDocument) {
+		int cont = 0;
+		Document temp = start;
 		if(start == null) {
 			start = newDocument;
 			end = newDocument;
 		}else {
-			end.setNext(newDocument);
-			end = newDocument;
+			while(true) {
+				
+			}
 		}
+	}
+	
+	private void insertTo(int posi) {
+		
 	}
 	
 	public Document remove() {
