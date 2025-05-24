@@ -2,13 +2,12 @@ package pilha;
 
 public enum ColorBall {
 	
-	BLACK(1),
-	BLUE(2),
-	GREEN(3),
-	YELLOW(4),
-	ORANGE(5),
-	PURPLE(6),
-	RED(7);
+	BLUE(1),
+	GREEN(2),
+	YELLOW(3),
+	ORANGE(4),
+	PURPLE(5),
+	RED(6);
 	
 	private final int color;
 	

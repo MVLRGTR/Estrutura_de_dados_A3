@@ -56,6 +56,11 @@ public class PlayingGame {
 				System.out.println("Entrada inválida para a pilha . Digite um número entre 1 e 7.");
 			}
 		}
+		ShowMenu.cleanConsole();
+		ShowMenu.showGameStacks(game.getStacks());
+		System.out.println("=-=-=-=-=-=-=-=-=-=-=-= VITÓRIA =-=-=-=-=-=-=-=-=-=-=");
+		System.out.println("=-=-=--=-=-=-Parabéns, você ganhou o jogo!=-=-=-=-=-=-");
+		System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
 		
 		return true; 
 		
