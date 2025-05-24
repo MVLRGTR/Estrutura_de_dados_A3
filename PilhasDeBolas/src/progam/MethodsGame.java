@@ -1,7 +1,6 @@
 package progam;
 
 import java.util.Random;
-
 import pilha.Ball;
 import pilha.ColorBall;
 import pilha.Pilha;
@@ -50,7 +49,7 @@ public class MethodsGame {
 
 			} while (i != 0 && currentColor == lastColor || !opt);
 
-			// Se passou, atualiza os contadores com os valores da pilha atual
+			
 			updateColorCounts(pilhas[i]);
 			lastColor = currentColor;
 		}
