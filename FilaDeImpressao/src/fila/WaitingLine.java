@@ -7,6 +7,8 @@ public class WaitingLine {
 	private int positions = 0;
 	
 	public void insert(Document newDocument) {
+		int cont = 0;
+		Document temp = start;
 		if(start == null) {
 			start = newDocument;
 			end = newDocument;
@@ -22,6 +24,10 @@ public class WaitingLine {
 			end = temp;
 			positions++;
 		}
+	}
+	
+	private void insertTo(int posi) {
+		
 	}
 	
 	public Document remove() {
@@ -56,7 +62,7 @@ public class WaitingLine {
 		Document aux = start;
 		while(aux != null) {
 			size++;
-			aux.setNext(aux.getNext());
+			aux=aux.getNext();
 		}
 		return size;
 	}
