@@ -14,7 +14,6 @@ public class WaitingLine {
 			end = newDocument;
 			positions++;
 		}else {
-			Document temp = start;
 			int DocumentPriority = newDocument.getPriority().getPriorityInt();
 			while(temp.getNext() != null && DocumentPriority >= temp.getPriority().getPriorityInt() && DocumentPriority >= temp.getNext().getPriority().getPriorityInt()) {
 				temp = temp.getNext();
@@ -25,10 +24,7 @@ public class WaitingLine {
 			positions++;
 		}
 	}
-	
-	private void insertTo(int posi) {
-		
-	}
+
 	
 	public Document remove() {
 		if(!isEmpty()) {
