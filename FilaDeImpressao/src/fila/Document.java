@@ -6,9 +6,9 @@ public class Document {
 	private String content;
 	private Priority priority;
 	
-	public Document(String content,int priority) {
+	public Document(String content,Priority priority) {
 		this.content = content;
-		this.priority = Priority.priorityInt(priority);
+		this.priority = priority;
 	}
 
 	public String getContent() {

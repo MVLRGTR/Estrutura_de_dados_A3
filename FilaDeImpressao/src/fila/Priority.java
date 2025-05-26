@@ -16,13 +16,13 @@ public enum Priority {
 		this.priority = priority;
 	}
 
-	public int getPriorityInt() {
+	public int getPriority() {
 		return priority;
 	}
 	
 	public static Priority priorityInt(int priority) {
 		for(Priority p : Priority.values()) {
-			if(p.getPriorityInt()==priority) {
+			if(p.getPriority()==priority) {
 				return p;
 			}
 		}
