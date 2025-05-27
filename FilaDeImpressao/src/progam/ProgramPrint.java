@@ -21,6 +21,12 @@ public class ProgramPrint {
 					ShowMenu.showMenu();
 					choice = sc.nextInt();
 				case 1:
+					ShowMenu.cleanConsole();
+					ShowMenu.listPriority();
+					System.out.print("Digite qualquer letra ou numero para voltar ao menu...");
+					sc.next();
+					ShowMenu.cleanConsole();
+					choice = -1;
 					break;
 				case 2:
 					break;
