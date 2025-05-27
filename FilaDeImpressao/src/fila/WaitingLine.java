@@ -5,17 +5,17 @@ public class WaitingLine {
 	private Document start = null;
 	private Document end = null;
 	private int positions = 0;
-	
+
 	public void insert(Document newDocument) {
-		int cont = 0;
 		Document temp = start;
-		if(start == null) {
+		if (start == null) {
 			start = newDocument;
 			end = newDocument;
 			positions++;
-		}else {
+		} else {
 			int DocumentPriority = newDocument.getPriority().getPriorityInt();
-			while(temp.getNext() != null && DocumentPriority >= temp.getPriority().getPriorityInt() && DocumentPriority >= temp.getNext().getPriority().getPriorityInt()) {
+			while (temp.getNext() != null && DocumentPriority >= temp.getPriority().getPriorityInt()
+					&& DocumentPriority >= temp.getNext().getPriority().getPriorityInt()) {
 				temp = temp.getNext();
 			}
 			newDocument.setNext(temp.getNext());
@@ -25,53 +25,56 @@ public class WaitingLine {
 		}
 	}
 
-	
-	public Document remove() {
-		if(!isEmpty()) {
+	public Document remove() throws WaitingLineException {
+		if (!isEmpty()) {
 			Document retVal = start;
 			start.setNext(retVal.getNext());
 			return retVal;
 		}
-		return null;
+		throw WaitingLineException.waitingLineIsEmpty("A fila está vazia !!!");
 	}
-	
-	public Document showFirst() {
-		if(!isEmpty()) {
+
+	public Document showFirst() throws WaitingLineException {
+		if (!isEmpty()) {
 			return start;
 		}
-		return null;
+		throw WaitingLineException.waitingLineIsEmpty("A fila está vazia !!!");
 	}
-	
-	public Document showLast() {
-		if(!isEmpty()) {
+
+	public Document showLast() throws WaitingLineException {
+		if (!isEmpty()) {
 			return end;
 		}
-		return null;
+		throw WaitingLineException.waitingLineIsEmpty("A fila está vazia !!!");
 	}
-	
+
 	public boolean isEmpty() {
 		return (start == null) ? true : false;
 	}
-	
+
 	public int size() {
-		int size = 0 ;
+		int size = 0;
 		Document aux = start;
-		while(aux != null) {
+		while (aux != null) {
 			size++;
-			aux=aux.getNext();
+			aux = aux.getNext();
 		}
 		return size;
 	}
-	
+
 	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("Lista de Prioridade \n");
-		Document temp = start;
-		for(int i = 0 ; i < positions;i++) {
-			sb.append(temp.getPriority().getPriorityInt() + "\n");
-			temp = temp.getNext();
+		if (isEmpty()) {
+			return "Não podemos imprimir a fila pois ela está vazia";
+		} else {
+			StringBuilder sb = new StringBuilder();
+			sb.append("Lista de Prioridade \n");
+			Document temp = start;
+			for (int i = 0; i < positions; i++) {
+				sb.append(temp.getPriority().getPriorityInt() + "\n");
+				temp = temp.getNext();
+			}
+			return sb.toString();
 		}
-		return sb.toString();
 	}
-	
+
 }

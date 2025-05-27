@@ -1,23 +1,49 @@
 package progam;
 
 import fila.WaitingLine;
-import fila.Document;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class ProgramPrint {
 
 	public static void main(String[] args) {
-		
-		WaitingLine fila = new WaitingLine();	
-		
-		fila.insert(new Document("primeira impressão",1));
-		fila.insert(new Document("segunda impressão com prioridade 1",1));
-		fila.insert(new Document("terceira impressão com prioridade 3",3));
-		fila.insert(new Document("quarta impressão com prioridade 5",5));
-		fila.insert(new Document("quinta impressão com prioridade 2",5));
-		
-		
-		System.err.println(fila.toString());
-	
+
+		WaitingLine fila = new WaitingLine();
+		Scanner sc = new Scanner(System.in);
+		int choice = -1;
+
+		try {
+
+			while (true) {
+
+				switch (choice) {
+				case -1:
+					ShowMenu.showMenu();
+					choice = sc.nextInt();
+				case 1:
+					break;
+				case 2:
+					break;
+				case 3:
+					break;
+				case 7:
+					System.out.println("Saindo...");
+					sc.close();
+					return;
+				default:
+					System.out.println("Opção digitada inválida");
+					choice = -1;
+				}
+
+			}
+
+		}  catch (InputMismatchException e) {
+			System.out.println("Entrada inválida. Por favor, digite um número.");
+			sc.next();
+		}
+
+		System.out.println(fila.toString());
+
 	}
 
 }
