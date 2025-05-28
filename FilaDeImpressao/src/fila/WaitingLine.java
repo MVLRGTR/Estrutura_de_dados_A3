@@ -6,7 +6,7 @@ public class WaitingLine {
 	private Document end = null;
 	private int positions = 0;
 
-	public void insert(Document newDocument) {
+	public void insert(Document newDocument) throws WaitingLineException {
 		Document temp = start;
 		if (start == null) {
 			start = newDocument;
@@ -14,14 +14,17 @@ public class WaitingLine {
 			positions++;
 		} else {
 			int DocumentPriority = newDocument.getPriority().getPriorityInt();
+			int insertionPosition = 2;
 			while (temp.getNext() != null && DocumentPriority >= temp.getPriority().getPriorityInt()
 					&& DocumentPriority >= temp.getNext().getPriority().getPriorityInt()) {
 				temp = temp.getNext();
+				insertionPosition++;
 			}
 			newDocument.setNext(temp.getNext());
+			newDocument.setInsertPosition(insertionPosition);
 			temp.setNext(newDocument);
-			end = temp;
 			positions++;
+			updatePositions();
 		}
 	}
 
@@ -29,6 +32,7 @@ public class WaitingLine {
 		if (!isEmpty()) {
 			Document retVal = start;
 			start.setNext(retVal.getNext());
+			updatePositions();
 			return retVal;
 		}
 		throw WaitingLineException.waitingLineIsEmpty("A fila está vazia !!!");
@@ -74,6 +78,23 @@ public class WaitingLine {
 				temp = temp.getNext();
 			}
 			return sb.toString();
+		}
+	}
+	
+	private void updatePositions() throws WaitingLineException {
+		if(!isEmpty()) {
+			Document aux = start;
+			int position = 1;
+			while(aux != null) {
+				aux.setInsertPosition(position);
+				position++;
+				if(aux.getNext() == null) {
+					end = aux;
+				}
+				aux=aux.getNext();
+			}
+		}else {
+			throw WaitingLineException.waitingLineIsEmpty("A fila está vazia !!!");
 		}
 	}
 

@@ -6,6 +6,7 @@ public class Document {
 	private String content;
 	private String title;
 	private Priority priority;
+	private int insertPosition;
 	
 	public Document(String content,String title,int priority) {
 		this.content = content;
@@ -37,4 +38,13 @@ public class Document {
 		return priority;
 	}
 
+	public int getInsertPosition() {
+		return insertPosition;
+	}
+
+	public void setInsertPosition(int insertPosition) {
+		this.insertPosition = insertPosition;
+	}
+	
+	
 }

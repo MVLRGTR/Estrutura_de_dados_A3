@@ -44,16 +44,18 @@ public class ShowMenu {
 	
 	public static void showDocumentsDetails(WaitingLine fila) {
 		int cont = 1;
+		ShowMenu.cleanConsole();
 		System.out.println("*========================= Mostrando Documentos Fila Heap =========================*");
 		try {
 			Document temp = fila.showFirst();
 			while(temp != null) {
-				System.out.printf("*========== %-20s ==========*",temp.getTitle());
+				System.out.printf("*========== %-10s ==========*\n",temp.getTitle());
 				System.out.println("* Número do Documento na Fila => "+cont);
-				System.out.printf("* Prioridade => %d : %s /n",temp.getPriority().hashCode(),temp.getPriority().name());
+				System.out.printf("* Prioridade => %d : %s \n",temp.getPriority().getPriorityInt(),temp.getPriority().name());
 				System.out.println("* Conteúdo do Documento : ");
 				System.out.println(temp.getContent());
 				System.out.println();
+				temp = temp.getNext();
 				cont++;
 			}
 		}catch (WaitingLineException e) {
@@ -61,5 +63,14 @@ public class ShowMenu {
 		}
 	}
 	
+	
+	public static void showDocumentDetails(Document document) {
+		System.out.printf("*========== %-10s ==========*\n",document.getTitle());
+		System.out.println("* Número do Documento na Fila => "+document.getInsertPosition());
+		System.out.printf("* Prioridade => %d : %s \n",document.getPriority().getPriorityInt(),document.getPriority().name());
+		System.out.println("* Conteúdo do Documento : ");
+		System.out.println(document.getContent());
+		System.out.println();
+	}
 
 }
