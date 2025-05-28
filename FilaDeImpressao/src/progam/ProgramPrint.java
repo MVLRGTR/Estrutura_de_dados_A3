@@ -29,6 +29,11 @@ public class ProgramPrint {
 					choice = -1;
 					break;
 				case 2:
+					ShowMenu.documentsNumber(fila);
+					System.out.print("Digite qualquer letra ou numero para voltar ao menu...");
+					sc.next();
+					ShowMenu.cleanConsole();
+					choice = -1;
 					break;
 				case 3:
 					break;
@@ -48,7 +53,6 @@ public class ProgramPrint {
 			sc.next();
 		}
 
-		System.out.println(fila.toString());
 
 	}
 

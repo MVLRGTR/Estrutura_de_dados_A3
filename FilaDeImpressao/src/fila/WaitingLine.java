@@ -70,7 +70,7 @@ public class WaitingLine {
 			sb.append("Lista de Prioridade \n");
 			Document temp = start;
 			for (int i = 0; i < positions; i++) {
-				sb.append(temp.getPriority().getPriorityInt() + "\n");
+				sb.append("* " + temp.getPriority().getPriorityInt() + "\n");
 				temp = temp.getNext();
 			}
 			return sb.toString();
