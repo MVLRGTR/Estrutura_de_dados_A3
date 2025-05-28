@@ -54,7 +54,7 @@ public class ShowMenu {
 			Document temp = fila.showFirst();
 			while(temp != null) {
 				System.out.printf("*========== %-10s ==========*\n",temp.getTitle());
-				System.out.println("* Número do Documento na Fila => "+cont);
+				System.out.println("* Posição na Fila => "+cont);
 				System.out.printf("* Prioridade => %d : %s \n",temp.getPriority().getPriorityInt(),temp.getPriority().name());
 				System.out.println("* Conteúdo do Documento : ");
 				System.out.println(temp.getContent());
@@ -80,15 +80,25 @@ public class ShowMenu {
 	public static void addNewDocument(Scanner sc,WaitingLine fila) {
 		while(true) {
 			try {
-				System.out.println("*==========Cadastro de novos documentos============*");
+				System.out.println("*=============================Cadastrar Documento==============================*");
 				System.out.println();
 				System.out.print("Digite o titulo do documento : ");
 				String title = sc.next();
-				
+				System.out.println();
+				System.out.printf("Digite o conteudo do documento : ");
+				String content = sc.next();
+				System.out.println();
+				ShowMenu.listPriority();
+				System.out.println("Digite a prioridade do documento :");
+				int priority = sc.nextInt();
+				Document document =  new Document(content,title,priority);
+				fila.insert(document);
+				return;
 			}catch (InputMismatchException e) {
-				
+				System.out.println("Formato digitado invalido !!!");
+				System.out.println(e.getMessage());
 			}catch (WaitingLineException e) {
-				
+				System.out.println(e.getMessage());
 			}
 		}
 	}
