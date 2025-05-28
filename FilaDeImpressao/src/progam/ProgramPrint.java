@@ -15,6 +15,7 @@ public class ProgramPrint {
 		fila.insert(new Document("quarta impressão com prioridade 5",5));
 		fila.insert(new Document("quinta impressão com prioridade 2",5));
 		fila.insert(new Document("quinta impressão com prioridade 2",6));
+		//erro
 		
 		System.err.println(fila.toString());
 	
