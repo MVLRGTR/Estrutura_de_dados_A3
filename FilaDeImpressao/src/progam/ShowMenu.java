@@ -46,6 +46,7 @@ public class ShowMenu {
 		int cont = 1;
 		ShowMenu.cleanConsole();
 		System.out.println("*========================= Mostrando Documentos Fila Heap =========================*");
+		System.out.println();
 		try {
 			Document temp = fila.showFirst();
 			while(temp != null) {
@@ -59,7 +60,7 @@ public class ShowMenu {
 				cont++;
 			}
 		}catch (WaitingLineException e) {
-			System.out.println(e);
+			System.out.println(e.getMessage());
 		}
 	}
 	

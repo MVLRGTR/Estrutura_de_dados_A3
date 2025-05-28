@@ -31,7 +31,7 @@ public class WaitingLine {
 	public Document remove() throws WaitingLineException {
 		if (!isEmpty()) {
 			Document retVal = start;
-			start.setNext(retVal.getNext());
+			start = start.getNext();
 			updatePositions();
 			return retVal;
 		}
