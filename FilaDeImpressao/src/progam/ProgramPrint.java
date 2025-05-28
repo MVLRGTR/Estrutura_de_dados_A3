@@ -53,6 +53,7 @@ public class ProgramPrint {
 					break;
 				case 5:
 					char decision;
+					ShowMenu.cleanConsole();;
 					ShowMenu.showDocumentDetails(fila.showFirst());
 					System.out.print("Tem certeza que deseja imprimir o documento S/N :");
 					decision = sc.next().charAt(0);

@@ -2,6 +2,9 @@ package progam;
 
 import fila.WaitingLine;
 import fila.WaitingLineException;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 import fila.Document;
 
 public class ShowMenu {
@@ -72,6 +75,22 @@ public class ShowMenu {
 		System.out.println("* Conteúdo do Documento : ");
 		System.out.println(document.getContent());
 		System.out.println();
+	}
+	
+	public static void addNewDocument(Scanner sc,WaitingLine fila) {
+		while(true) {
+			try {
+				System.out.println("*==========Cadastro de novos documentos============*");
+				System.out.println();
+				System.out.print("Digite o titulo do documento : ");
+				String title = sc.next();
+				
+			}catch (InputMismatchException e) {
+				
+			}catch (WaitingLineException e) {
+				
+			}
+		}
 	}
 
 }
