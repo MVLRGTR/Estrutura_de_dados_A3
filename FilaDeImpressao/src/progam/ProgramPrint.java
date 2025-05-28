@@ -52,27 +52,17 @@ public class ProgramPrint {
 				case 4:
 					break;
 				case 5:
-					try {
-						char decision;
-						ShowMenu.showDocumentDetails(fila.showFirst());
-						System.out.print("Tem certeza que deseja imprimir o documento S/N :");
-						decision = sc.next().charAt(0);
-						decision = Character.toUpperCase(decision);
-						if (decision == 'S') {
-							fila.remove();
-							choice = -1;
-						} else {
-							System.out.println("Voltando ao menu Principal...");
-							choice = -1;
-						}
-
-					} catch (WaitingLineException e) {
-						System.out.println("Erro ao processar sua operação!!!");
-						System.out.println(e.getMessage());
-						System.out.println("Voltando para o menu principal...");
+					char decision;
+					ShowMenu.showDocumentDetails(fila.showFirst());
+					System.out.print("Tem certeza que deseja imprimir o documento S/N :");
+					decision = sc.next().charAt(0);
+					decision = Character.toUpperCase(decision);
+					if (decision == 'S') {
+						fila.remove();
 						choice = -1;
-					} catch (InputMismatchException e) {
-						System.out.println(e.getMessage());
+					} else {
+						System.out.println("Voltando ao menu Principal...");
+						choice = -1;
 					}
 					break;
 				case 6:
@@ -82,13 +72,19 @@ public class ProgramPrint {
 					sc.close();
 					return;
 				default:
-					System.out.println("Opção digitada inválida");
+					System.out.println();
+					System.out.println("  Opção digitada inválida !!!");
 					choice = -1;
 				}
 
 			} catch (InputMismatchException e) {
 				System.out.println("Entrada inválida. Por favor, digite um número.");
 				sc.next();
+			} catch (WaitingLineException e) {
+				System.out.println("Erro ao processar sua operação!!!");
+				System.out.println(e.getMessage());
+				System.out.println("Voltando para o menu principal...");
+				choice = -1;
 			}
 		}
 	}
