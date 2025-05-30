@@ -95,7 +95,7 @@ public class WaitingLine {
 		}
 	}
 	
-	private void updatePositions() throws WaitingLineException {
+	/*private void updatePositions() throws WaitingLineException {
 		if(!isEmpty()) {
 			Document aux = start;
 			int position = 1;
@@ -111,5 +111,5 @@ public class WaitingLine {
 			throw WaitingLineException.waitingLineIsEmpty("A fila está vazia UpdatePositions !!!");
 		}
 	}
-
+*/
 }
