@@ -8,48 +8,42 @@ public class WaitingLine {
 	
 	public void insertHeap(Document newDocument) throws WaitingLineException{
 		WaitingLine filaAux = new WaitingLine();  //Aqui eu instancio a fila auxiliar para o corte da estrutura de dados
-		Document temp = start;
-		int cont = 0 ;
+
 		if (start == null) {
 			start = newDocument;
 			end = newDocument;
-			positions++;
+			this.positions++;
 		} else {
-			int DocumentPriority = newDocument.getPriority().getPriorityInt();
-			int insertionPosition = 2;
-			//----------------------
-			while (temp.getNext() != null && DocumentPriority >= temp.getPriority().getPriorityInt()
-					&& DocumentPriority >= temp.getNext().getPriority().getPriorityInt()) {
-				temp = temp.getNext();
-				cont++;
-				System.out.println("while");
-			}
-			//----------------------
-			for(int i = 0 ; i < cont+1 ; i++) {
-				filaAux.insert(this.remove());
-				System.out.println("for");
-			}
-			//----------------------
-			if(this.isEmpty()) {
-				start = filaAux.getStart();
-			}else {
-				filaAux.insert(newDocument);
-				filaAux.end.setNext(this.start);
-				start = filaAux.showFirst();
+			boolean insert = false;
+			
+			for(int i = 0 ; i < this.positions ;i++) {
+				System.out.println("entrou for");
+				Document temp = this.remove();
+				if(!insert && newDocument.getPriority().getPriorityInt() < temp.getPriority().getPriorityInt()) {
+					filaAux.insert(newDocument);
+					insert=true;
+				}
+				filaAux.insert(temp);
 			}
 			
+			if(!insert) {
+				filaAux.insert(newDocument);
+			}
+			
+			this.start = filaAux.start;
+			this.end = filaAux.end;
+			this.positions++;
 		}
+		
 	}
 
 	public void insert(Document newDocument) throws WaitingLineException {
 		if (start == null) {
 			start = newDocument;
 			end = newDocument;
-			positions++;
 		} else {
 			end.setNext(newDocument);
 			end = newDocument;
-			positions++;
 		}
 	}
 
@@ -59,21 +53,21 @@ public class WaitingLine {
 			start = start.getNext();
 			return retVal;
 		}
-		throw WaitingLineException.waitingLineIsEmpty("A fila está vazia !!!");
+		throw WaitingLineException.waitingLineIsEmpty("A fila está vazia remove !!!");
 	}
 
 	public Document showFirst() throws WaitingLineException {
 		if (!isEmpty()) {
 			return start;
 		}
-		throw WaitingLineException.waitingLineIsEmpty("A fila está vazia !!!");
+		throw WaitingLineException.waitingLineIsEmpty("A fila está vazia showFirst !!!");
 	}
 
 	public Document showLast() throws WaitingLineException {
 		if (!isEmpty()) {
 			return end;
 		}
-		throw WaitingLineException.waitingLineIsEmpty("A fila está vazia !!!");
+		throw WaitingLineException.waitingLineIsEmpty("A fila está vazia showLast !!!");
 	}
 
 	public boolean isEmpty() {
@@ -97,7 +91,7 @@ public class WaitingLine {
 			StringBuilder sb = new StringBuilder();
 			sb.append("Lista de Prioridade \n");
 			Document temp = start;
-			for (int i = 0; i < positions; i++) {
+			for (int i = 0; i < this.size(); i++) {
 				sb.append("* " + temp.getPriority().getPriorityInt() + "\n");
 				temp = temp.getNext();
 			}
@@ -118,25 +112,8 @@ public class WaitingLine {
 				aux=aux.getNext();
 			}
 		}else {
-			throw WaitingLineException.waitingLineIsEmpty("A fila está vazia !!!");
+			throw WaitingLineException.waitingLineIsEmpty("A fila está vazia UpdatePositions !!!");
 		}
 	}
-
-	private Document getStart() {
-		return start;
-	}
-
-	private void setStart(Document start) {
-		this.start = start;
-	}
-
-	private Document getEnd() {
-		return end;
-	}
-
-	private void setEnd(Document end) {
-		this.end = end;
-	}
-	
 
 }
