@@ -4,7 +4,6 @@ public class WaitingLine {
 
 	private Document start = null;
 	private Document end = null;
-	private int positions = 0;
 	
 	public void insertHeap(Document newDocument) throws WaitingLineException{
 		WaitingLine filaAux = new WaitingLine();  //Aqui eu instancio a fila auxiliar para o corte da estrutura de dados
@@ -12,27 +11,24 @@ public class WaitingLine {
 		if (start == null) {
 			start = newDocument;
 			end = newDocument;
-			this.positions++;
 		} else {
 			boolean insert = false;
+			Document temp = this.start;
 			
-			for(int i = 0 ; i < this.positions ;i++) {
-				System.out.println("entrou for");
-				Document temp = this.remove();
+			while(temp!=null) {
 				if(!insert && newDocument.getPriority().getPriorityInt() < temp.getPriority().getPriorityInt()) {
 					filaAux.insert(newDocument);
-					insert=true;
+					insert = true;
 				}
 				filaAux.insert(temp);
+				temp = temp.getNext();
 			}
-			
 			if(!insert) {
 				filaAux.insert(newDocument);
 			}
 			
-			this.start = filaAux.start;
-			this.end = filaAux.end;
-			this.positions++;
+			this.start = filaAux.showFirst();
+			this.end = filaAux.showLast();
 		}
 		
 	}
