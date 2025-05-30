@@ -16,11 +16,11 @@ public class ProgramPrint {
 		int choice = -1;
 
 		try {
-			fila.insert(new Document("ola dfdsjfhsd", "texte1", 1));
-			fila.insert(new Document("ola dfdsjfhsd", "texte1", 1));
-			fila.insert(new Document("ola dfdsjfhsd", "texte2", 2));
-			fila.insert(new Document("ola dfdsjfhsd", "texte5", 5));
-			fila.insert(new Document("ola funconando", "texte3", 3));
+			fila.insertHeap(new Document("ola dfdsjfhsd", "texte1", 1));
+			fila.insertHeap(new Document("ola dfdsjfhsd", "texte1", 1));
+			fila.insertHeap(new Document("ola dfdsjfhsd", "texte2", 2));
+			fila.insertHeap(new Document("ola dfdsjfhsd", "texte5", 5));
+			fila.insertHeap(new Document("ola funconando", "texte3", 3));
 		} catch (WaitingLineException e) {
 			System.out.println(e);
 		}

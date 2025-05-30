@@ -5,9 +5,11 @@ public class WaitingLine {
 	private Document start = null;
 	private Document end = null;
 	private int positions = 0;
-
-	public void insert(Document newDocument) throws WaitingLineException {
+	
+	public void insertHeap(Document newDocument) throws WaitingLineException{
+		WaitingLine filaAux = new WaitingLine();  //Aqui eu instancio a fila auxiliar para o corte da estrutura de dados
 		Document temp = start;
+		int cont = 0 ;
 		if (start == null) {
 			start = newDocument;
 			end = newDocument;
@@ -15,16 +17,39 @@ public class WaitingLine {
 		} else {
 			int DocumentPriority = newDocument.getPriority().getPriorityInt();
 			int insertionPosition = 2;
+			//----------------------
 			while (temp.getNext() != null && DocumentPriority >= temp.getPriority().getPriorityInt()
 					&& DocumentPriority >= temp.getNext().getPriority().getPriorityInt()) {
 				temp = temp.getNext();
-				insertionPosition++;
+				cont++;
+				System.out.println("while");
 			}
-			newDocument.setNext(temp.getNext());
-			newDocument.setInsertPosition(insertionPosition);
-			temp.setNext(newDocument);
+			//----------------------
+			for(int i = 0 ; i < cont+1 ; i++) {
+				filaAux.insert(this.remove());
+				System.out.println("for");
+			}
+			//----------------------
+			if(this.isEmpty()) {
+				start = filaAux.getStart();
+			}else {
+				filaAux.insert(newDocument);
+				filaAux.end.setNext(this.start);
+				start = filaAux.showFirst();
+			}
+			
+		}
+	}
+
+	public void insert(Document newDocument) throws WaitingLineException {
+		if (start == null) {
+			start = newDocument;
+			end = newDocument;
 			positions++;
-			updatePositions();
+		} else {
+			end.setNext(newDocument);
+			end = newDocument;
+			positions++;
 		}
 	}
 
@@ -32,7 +57,6 @@ public class WaitingLine {
 		if (!isEmpty()) {
 			Document retVal = start;
 			start = start.getNext();
-			updatePositions();
 			return retVal;
 		}
 		throw WaitingLineException.waitingLineIsEmpty("A fila está vazia !!!");
@@ -97,5 +121,22 @@ public class WaitingLine {
 			throw WaitingLineException.waitingLineIsEmpty("A fila está vazia !!!");
 		}
 	}
+
+	private Document getStart() {
+		return start;
+	}
+
+	private void setStart(Document start) {
+		this.start = start;
+	}
+
+	private Document getEnd() {
+		return end;
+	}
+
+	private void setEnd(Document end) {
+		this.end = end;
+	}
+	
 
 }
