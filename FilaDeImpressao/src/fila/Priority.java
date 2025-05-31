@@ -26,7 +26,7 @@ public enum Priority {
 				return p;
 			}
 		}
-		throw new IllegalArgumentException("Prioridade Inválida : "+priority);
+		throw new IllegalArgumentException("Prioridade " +priority+ " Inválida !!! ");
 	}
 	
 }

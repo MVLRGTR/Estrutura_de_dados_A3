@@ -26,6 +26,7 @@ public class ProgramPrint {
 		}
 
 		while (true) {
+			
 			try {
 
 				switch (choice) {
@@ -69,6 +70,7 @@ public class ProgramPrint {
 				case 6:
 					ShowMenu.cleanConsole();
 					ShowMenu.addNewDocument(sc, fila);
+					choice = -1;
 					break;
 				case 7:
 					System.out.println("Saindo...");

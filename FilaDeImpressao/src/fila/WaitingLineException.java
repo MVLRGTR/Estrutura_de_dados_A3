@@ -18,6 +18,10 @@ public class WaitingLineException extends Exception{
 		return new WaitingLineException(message,"PRIORITY");
 	}
 	
+	public static WaitingLineException documentVariablesErro(String message) {
+		return new WaitingLineException(message,"VARIABLES");
+	}
+	
 	public String getType() {
 		return type;
 	}

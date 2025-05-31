@@ -14,7 +14,15 @@ public class WaitingLine {
 		} else {
 			boolean insert = false;
 			Document temp = this.start;
-			
+			//a inserção heap e feita da seguinte forma ,com a fila original [115] e filaAux [] e precisando adicionar 3 em modos heap , então eu 
+			//venho tirando os elementos da fila principal e colocando na filaAux com o loop while e venho testando quando a prioridade do elemento atual e menor do que o elemento
+			//que eu estou retirando da fila e caso isso ocorra eu sei onde eu preciso inserir o elemento novo filaAux , vou fazer um exemplo abaixo.
+			//
+			//   FILA[1,1,5] E FILAAUX[] INSERT 3
+			//1º 3 É MENOR QUE 1 = FALSE || FILA[1,5] E FILAAUX[1] 
+			//2º 3 É MENOR QUE 1 = FALSE || FILA[5] E FILAAUX[1,1] 
+			//3º 3 É MENOR QUE 5 = TRUE  || FILA[5] E FILAAUX[1,1,3,5]  // NESSE MOMENTO O IF DO LOOP É ACIONADO E ENTÃO EU INSIRO O ELEMENTO3 E DEPOIS 0 5 MANTENDO A ORDEM HEAP
+			//DEPOIS DESSE PROCESSO EU ATUALIZO OS PONTEIROS FAZENDO COM QUE A FILA ATUAL RECEBA AUX.
 			while(temp!=null) {
 				if(!insert && newDocument.getPriority().getPriorityInt() < temp.getPriority().getPriorityInt()) {
 					filaAux.insert(newDocument);

@@ -2,12 +2,16 @@ package progam;
 
 import fila.WaitingLine;
 import fila.WaitingLineException;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import fila.Document;
 
 public class ShowMenu {
+	
+	public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_BLUE = "\u001B[34m";
 	
 	public static void showMenu() {
 		System.out.println("*=============================Menu fila HEAP=============================*");
@@ -82,19 +86,26 @@ public class ShowMenu {
 			try {
 				System.out.println("*=============================Cadastrar Documento==============================*");
 				System.out.println();
-				System.out.print("Digite o titulo do documento : ");
-				String title = sc.next();
+				
+				sc.nextLine();
+				System.out.print(ANSI_GREEN+"Digite o titulo do documento : " +ANSI_RESET);
+				String title = sc.nextLine();
+				
 				System.out.println();
-				System.out.printf("Digite o conteudo do documento : ");
-				String content = sc.next();
+				
+				
+				System.out.printf(ANSI_GREEN+"Digite o conteudo do documento : "+ANSI_RESET);
+				String content = sc.nextLine();
 				System.out.println();
+				
 				ShowMenu.listPriority();
-				System.out.println("Digite a prioridade do documento :");
+				System.out.print(ANSI_GREEN+"Digite a prioridade do documento :"+ANSI_RESET);
 				int priority = sc.nextInt();
+				
 				Document document =  new Document(content,title,priority);
 				fila.insert(document);
 				return;
-			}catch (InputMismatchException e) {
+			}catch (IllegalArgumentException e) {
 				System.out.println("Formato digitado invalido !!!");
 				System.out.println(e.getMessage());
 			}catch (WaitingLineException e) {

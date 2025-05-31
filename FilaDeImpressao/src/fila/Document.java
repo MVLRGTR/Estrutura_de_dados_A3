@@ -8,7 +8,10 @@ public class Document {
 	private Priority priority;
 	private int insertPosition;
 	
-	public Document(String content,String title,int priority) {
+	public Document(String content,String title,int priority) throws WaitingLineException {
+		if(content == "" || title == "" ) {
+			throw WaitingLineException.documentVariablesErro("O documento não pode ter titulo ou conteudo vazio !!!");
+		}
 		this.content = content;
 		this.priority = Priority.priorityInt(priority);
 		this.title = title;
