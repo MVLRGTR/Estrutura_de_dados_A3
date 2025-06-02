@@ -58,9 +58,12 @@ public class PlayingGame {
 		}
 		ShowMenu.cleanConsole();
 		ShowMenu.showGameStacks(game.getStacks());
-		System.out.println("=-=-=-=-=-=-=-=-=-=-=-= VITÓRIA =-=-=-=-=-=-=-=-=-=-=");
-		System.out.println("=-=-=--=-=-=-Parabéns, você ganhou o jogo!=-=-=-=-=-=-");
-		System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+		System.out.println("*========================================================================================*");
+		System.out.println("*=====================================  VITÓRIA  =======================================*");
+		System.out.println("*===========================  Parabéns, você ganhou o jogo!  ===========================*");
+		System.out.println("*========================================================================================*");
+
+
 		
 		return true; 
 		
