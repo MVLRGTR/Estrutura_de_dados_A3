@@ -11,9 +11,17 @@ public class ShowMenu {
 	public static final String ANSI_RESET = "\u001B[0m";
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_GREEN = "\u001B[32m";
-    public static final String ANSI_BLUE = "\u001B[34m";
+    public static final String ANSI_CYAN = "\u001B[36m";
+    public static final String ANSI_BRIGHT_CYAN = "\u001B[96m";
+
+    public static final String ANSI_BRIGHT_RED = "\u001B[91m";
+    public static final String ANSI_BRIGHT_GREEN = "\u001B[92m";
+    public static final String ANSI_BRIGHT_YELLOW = "\u001B[93m";
+    public static final String ANSI_BRIGHT_BLUE = "\u001B[94m";
+    public static final String ANSI_BRIGHT_PURPLE = "\u001B[95m";
 	
 	public static void showMenu() {
+		System.out.print(ANSI_BRIGHT_CYAN);
 		System.out.println("*=============================Menu fila HEAP=============================*");
 		System.out.println("*                                                                        *");
 		System.out.println("* 1 - Listar Prioridades                                                 *");
@@ -25,6 +33,7 @@ public class ShowMenu {
 		System.out.println("* 7 - Sair do Progama                                                    *");
 		System.out.println("*                                                                        *");
 		System.out.print("* Digite a Opção desejada :");
+		System.out.print(ANSI_RESET);
 	}
 	
 	public static void cleanConsole() {
@@ -84,26 +93,29 @@ public class ShowMenu {
 	public static void addNewDocument(Scanner sc,WaitingLine fila) {
 		while(true) {
 			try {
+				System.out.println(ANSI_BRIGHT_CYAN);
 				System.out.println("*=============================Cadastrar Documento==============================*");
 				System.out.println();
 				
 				sc.nextLine();
-				System.out.print(ANSI_GREEN+"Digite o titulo do documento : " +ANSI_RESET);
+				System.out.print(" Digite o titulo do documento : "+ANSI_RESET );
 				String title = sc.nextLine();
 				
 				System.out.println();
 				
 				
-				System.out.printf(ANSI_GREEN+"Digite o conteudo do documento : "+ANSI_RESET);
+				System.out.printf(ANSI_BRIGHT_CYAN+" Digite o conteudo do documento : "+ANSI_RESET);
 				String content = sc.nextLine();
 				System.out.println();
 				
 				ShowMenu.listPriority();
-				System.out.print(ANSI_GREEN+"Digite a prioridade do documento :"+ANSI_RESET);
+				System.out.print(ANSI_BRIGHT_CYAN+" Digite a prioridade do documento : "+ANSI_RESET);
 				int priority = sc.nextInt();
 				
 				Document document =  new Document(content,title,priority);
 				fila.insert(document);
+				System.out.println();
+				System.out.println(ANSI_GREEN+"Documento inserido com sucesso !!!"+ANSI_RESET);
 				return;
 			}catch (IllegalArgumentException e) {
 				System.out.println("Formato digitado invalido !!!");

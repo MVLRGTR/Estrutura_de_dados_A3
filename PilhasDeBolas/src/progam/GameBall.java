@@ -2,8 +2,17 @@ package progam;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.time.LocalDateTime;
+import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GameBall {
+	
+	private static boolean winner = false;
+	private static LocalDateTime startTime;
+	private static LocalDateTime endTime;
+	private static List<Duration> durationGames = new ArrayList<>();
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
@@ -21,7 +30,16 @@ public class GameBall {
 				
 				case 1:
 					PlayingGame playinGame = new PlayingGame(game, sc);
-					playinGame.startGame();
+					startTime = LocalDateTime.now();
+					winner = playinGame.startGame();
+					endTime = LocalDateTime.now();
+					if(winner == true) {
+						Duration duration = Duration.between(startTime, endTime);
+						long minutes = duration.toMinutes();
+						long remainingSeconds = duration.getSeconds() % 60;
+						durationGames.add(duration);
+						System.out.println("Tempo total de jogo: " + minutes + " min " + remainingSeconds + " seg");
+					}
 					choice =-1;
 					break;
 					
@@ -34,6 +52,17 @@ public class GameBall {
 					break;
 				
 				case 3:
+					if(!durationGames.isEmpty()) {
+						ShowMenu.showTimes(durationGames);	
+					}else {
+						System.out.println();
+						System.out.println("Você ainda não tem nenhum jogo !!!");
+						System.out.println();
+					}
+					choice =-1;
+					break;
+					
+				case 4:
 					System.out.println("Saindo do jogo...");
 					sc.close();
 					return;

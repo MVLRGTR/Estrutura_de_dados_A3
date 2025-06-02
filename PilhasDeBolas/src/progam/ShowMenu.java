@@ -1,5 +1,8 @@
 package progam;
 
+import java.time.Duration;
+import java.util.List;
+
 import pilha.Pilha;
 
 public class ShowMenu {
@@ -8,7 +11,8 @@ public class ShowMenu {
 		System.out.println("*=============== Bem vindo ao JOGO DE ORGANIZAR PILHAS DE BOLAS ==========================*");
 		 System.out.println("1. Iniciar Jogo");
          System.out.println("2. Regras do Jogo");
-         System.out.println("3. Sair");
+         System.out.println("3. Mostrar tempos");
+         System.out.println("4. Sair do jogo");
          System.out.println("OBS : Dentro do jogo caso deseje voltar para o menu digite exit na pilha de tirar bola !!!");
          System.out.println("*========================================================================================*");
          System.out.print("Escolha uma opção: ");
@@ -78,6 +82,15 @@ public class ShowMenu {
 	    }
 	    System.out.println("*   |           |           |           |           |           |           |         *");
 	    System.out.println("*  ___         ___         ___         ___         ___         ___         ___        *");
+	}
+	
+	public static void showTimes(List<Duration> durationGames) {
+		ShowMenu.cleanConsole();
+		System.out.println("*=========================Mostrando seus tempos=========================*");
+		for(int i = 0 ; i < durationGames.size() ; i++) {
+			System.out.println("Tempo total de jogo: " + durationGames.get(i).toMinutes() + " min " + durationGames.get(i).getSeconds() % 60 + " seg");
+		}
+		ShowMenu.cleanConsole();
 	}
 	
 }
