@@ -27,10 +27,9 @@ public class ShowMenu {
 		System.out.println("* 1 - Listar Prioridades                                                 *");
 		System.out.println("* 2 - Nº Documentos Na fila                                              *");
 		System.out.println("* 3 - Mostra Documentos da fila de forma detalhada                       *");
-		System.out.println("* 4 - Exportar fila para um aquivo                                       *");
-		System.out.println("* 5 - Imprimir Documento 		                                         *");
-		System.out.println("* 6 - Colocar Documento na fila                                          *");
-		System.out.println("* 7 - Sair do Progama                                                    *");
+		System.out.println("* 4 - Imprimir Documento 		                                 *");
+		System.out.println("* 5 - Colocar Documento na fila                                          *");
+		System.out.println("* 6 - Sair do Progama                                                    *");
 		System.out.println("*                                                                        *");
 		System.out.print("* Digite a Opção desejada :");
 		System.out.print(ANSI_RESET);
@@ -44,12 +43,12 @@ public class ShowMenu {
 	
 	public static void listPriority() {
 		System.out.println("*=============================Lista de Prioridade==============================*");
-		System.out.println("* 1 URGENT  => Tem prioridade acima de todos os outros.                        *");
-		System.out.println("* 2 HIGHT   => Prioridade nível alto.                                          *");
-		System.out.println("* 3 NORMAL  => Prioridade Normal.                                              *");
-		System.out.println("* 4 LOW     => Prioridade baixa.                                               *");
-		System.out.println("* 5 VERYLOW => Prioridade muito baixa.                                         *");
-		System.out.println("*==============================================================================*");
+		System.out.println(ANSI_BRIGHT_PURPLE+"* 1 URGENT  => Tem prioridade acima de todos os outros.                        *");
+		System.out.println(ANSI_RED+"* 2 HIGHT   => Prioridade nível alto.                                          *");
+		System.out.println(ANSI_BRIGHT_YELLOW+"* 3 NORMAL  => Prioridade Normal.                                              *");
+		System.out.println(ANSI_BRIGHT_BLUE+"* 4 LOW     => Prioridade baixa.                                               *");
+		System.out.println(ANSI_BRIGHT_GREEN+"* 5 VERYLOW => Prioridade muito baixa.                                         *");
+		System.out.println(ANSI_RESET+"*==============================================================================*");
 	}
 	
 	public static void documentsNumber(WaitingLine fila) {

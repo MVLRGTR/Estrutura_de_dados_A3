@@ -38,14 +38,17 @@ public class GameBall {
 						long minutes = duration.toMinutes();
 						long remainingSeconds = duration.getSeconds() % 60;
 						durationGames.add(duration);
+						System.out.println();
 						System.out.println("Tempo total de jogo: " + minutes + " min " + remainingSeconds + " seg");
 					}
+					ShowMenu.cleanConsole();
 					choice =-1;
 					break;
 					
 				case 2:
 					ShowMenu.cleanConsole();
 					ShowMenu.showRules();
+					ShowMenu.cleanConsole();
 					sc.next();
 					sc.nextLine();
 					choice =-1;
@@ -59,6 +62,7 @@ public class GameBall {
 						System.out.println("Você ainda não tem nenhum jogo !!!");
 						System.out.println();
 					}
+					ShowMenu.cleanConsole();
 					choice =-1;
 					break;
 					

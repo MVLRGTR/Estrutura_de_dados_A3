@@ -18,6 +18,8 @@ public class PlayingGame {
 	public boolean startGame() {
 		int originStack ;
 		int destinationStack;
+		int originTemp =1;
+		int destinationTemp=1;
 		
 		try {
 			game.initStacks();
@@ -40,27 +42,34 @@ public class PlayingGame {
                     return false;
                 }
 				originStack = Integer.parseInt(originInput) - 1;
-	
+			
 				
 		        System.out.print("Digite nº pilha (1-7) para poder colocar a bola :");
 				String destinationInput = sc.nextLine().trim();
 				destinationStack = Integer.parseInt(destinationInput) - 1;
+				
+				if(originStack == destinationTemp && destinationStack == originTemp) {
+					throw StackExeption.operatorInvalid("Error : Você não pode fazer essa operação , pois ela viola a regra do rollback!!!");
+				}else {
+					game.changeBall(originStack, destinationStack);
+					originTemp=originStack;
+					destinationTemp=destinationStack;
+				}
 		
-				game.changeBall(originStack, destinationStack);
 				
 			}catch(StackExeption e) {
-				System.out.println(e.getMessage());
+				System.err.println(e.getMessage());
 			}catch(InputMismatchException e) {
-				System.out.println(e.getMessage());
+				System.err.println(e.getMessage());
 			}catch(NumberFormatException e) {
-				System.out.println("Entrada inválida para a pilha . Digite um número entre 1 e 7.");
+				System.err.println("Entrada inválida para a pilha . Digite um número entre 1 e 7.");
 			}
 		}
 		ShowMenu.cleanConsole();
 		ShowMenu.showGameStacks(game.getStacks());
-		System.out.println("=-=-=-=-=-=-=-=-=-=-=-= VITÓRIA =-=-=-=-=-=-=-=-=-=-=");
-		System.out.println("=-=-=--=-=-=-Parabéns, você ganhou o jogo!=-=-=-=-=-=-");
-		System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+		System.out.println(ShowMenu.TEXT_GREEN+"=-=-=-=-=-=-=-=-=-=-=-= VITÓRIA =-=-=-=-=-=-=-=-=-=-=");
+		System.out.println(ShowMenu.TEXT_GREEN+"=-=-=--=-=-=-Parabéns, você ganhou o jogo!=-=-=-=-=-=-");
+		System.out.println(ShowMenu.TEXT_GREEN+"=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-="+ShowMenu.RESET);
 		
 		return true; 
 		

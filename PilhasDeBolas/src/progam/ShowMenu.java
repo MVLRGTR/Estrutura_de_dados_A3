@@ -7,6 +7,28 @@ import pilha.Pilha;
 
 public class ShowMenu {
 	
+	// Códigos ANSI para resetar a formatação
+    public static final String RESET = "\u001B[0m";
+
+    // Códigos ANSI para cores de texto (foreground)
+    public static final String TEXT_BLUE = "\u001B[34m";
+    public static final String TEXT_GREEN = "\u001B[32m";
+    public static final String TEXT_YELLOW = "\u001B[33m";
+    public static final String TEXT_YELLOW_256 = "\u001B[38;5;226m"; 
+    public static final String TEXT_ORANGE_256 = "\u001B[38;5;214m";
+    public static final String TEXT_PURPLE_256 = "\u001B[38;5;93m";
+    public static final String TEXT_RED = "\u001B[31m";
+    public static final String TEXT_BLACK = "\u001B[30m";
+    public static final String TEXT_MAGENTA = "\u001B[35m";
+
+    // Códigos ANSI para cores de fundo (background)
+    public static final String BACKGROUND_BLACK = "\u001B[40m";
+    public static final String BACKGROUND_RED = "\u001B[41m";
+    public static final String BACKGROUND_GREEN = "\u001B[42m";
+    public static final String BACKGROUND_YELLOW = "\u001B[43m";
+    public static final String BACKGROUND_BLUE = "\u001B[44m";
+    public static final String BACKGROUND_WHITE = "\u001B[47m";
+	
 	public static void showMenu() {
 		System.out.println("*=============== Bem vindo ao JOGO DE ORGANIZAR PILHAS DE BOLAS ==========================*");
 		 System.out.println("1. Iniciar Jogo");
