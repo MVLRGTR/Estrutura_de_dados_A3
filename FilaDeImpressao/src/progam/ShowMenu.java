@@ -112,7 +112,7 @@ public class ShowMenu {
 				int priority = sc.nextInt();
 				
 				Document document =  new Document(content,title,priority);
-				fila.insert(document);
+				fila.insertHeap(document);
 				System.out.println();
 				System.out.println(ANSI_GREEN+"Documento inserido com sucesso !!!"+ANSI_RESET);
 				return;
