@@ -82,7 +82,7 @@ public class ShowMenu {
 	
 	public static void showDocumentDetails(Document document) {
 		System.out.printf("*========== %-10s ==========*\n",document.getTitle());
-		System.out.println("* Número do Documento na Fila => "+document.getInsertPosition()+1);
+		System.out.println("* Número do Documento na Fila => "+(document.getInsertPosition()+1));
 		System.out.printf("* Prioridade => %d : %s \n",document.getPriority().getPriorityInt(),document.getPriority().name());
 		System.out.println("* Conteúdo do Documento : ");
 		System.out.println(document.getContent());
